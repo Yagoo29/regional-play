@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIFA World Cup 2026 - Transmissão Oficial Regional Play</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* Paleta Oficial Copa 2026: Roxo Profundo, Verde Esmeralda, Dourado e Neon */
+        :root {
+            --bg-principal: #100528; /* Roxo ultra escuro oficial */
+            --bg-cards: #1b0b3e; /* Roxo intermediário */
+            --copa-verde: #00f076; /* Verde limão/esmeralda neon */
+            --copa-dourado: #ffd700; /* Ouro */
+            --copa-azul: #00b4ff; /* Azul Celeste */
+            --texto-claro: #f4f2f9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg-principal);
+            color: var(--texto-claro);
+            overflow-x: hidden;
+        }
+
+        /* Banner de Aviso Realista */
+        .top-bar {
+            background: linear-gradient(90deg, #6366f1, #a855f7);
+            color: white;
+            text-align: center;
+            padding: 8px 10px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* Cabeçalho */
+        header {
+            background: rgba(16, 5, 40, 0.95);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-badge {
+            background: linear-gradient(135deg, var(--copa-dourado), #cc9900);
+            color: #100528;
+            font-weight: 800;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+
+        .logo-texto {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-texto span {
+            color: var(--copa-verde);
+        }
+
+        /* Botões Estilizados */
+        .btn {
+            background: linear-gradient(135deg, var(--copa-verde), #00b85a);
+            color: #100528;
+            padding: 12px 28px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 4px 20px rgba(0, 240, 118, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(0, 240, 118, 0.6);
+            filter: brightness(1.1);
+        }
+
+        .btn-ouro {
+            background: linear-gradient(135deg, var(--copa-dourado), #cca030);
+            box-shadow: 0 4px 20px rgba(255, 213, 0, 0.3);
+        }
+
+        .btn-ouro:hover {
+            box-shadow: 0 6px 25px rgba(255, 213, 0, 0.6);
+        }
+
+        /* Hero Section Realista */
+        .hero {
+            min-height: 75vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+            /* Fundo oficial abstrato baseado nas marcas registradas da copa 2026 */
+            background: radial-gradient(circle at center, rgba(27, 11, 62, 0.4) 0%, var(--bg-principal) 85%), 
+                        url('https://images.unsplash.com/photo-1518091041984-6515c0e107b3?q=80&w=1920') center/cover no-repeat;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            z-index: 2;
+        }
+
+        .hero-tag {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--copa-azul);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(90deg, var(--copa-verde), var(--copa-azul));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 35px;
+            color: #b4acc9;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Widget de Transmissão Ao Vivo Fake (Gera urgência) */
+        .live-status {
+            background: rgba(255, 0, 0, 0.2);
+            border: 1px solid red;
+            color: #ff4a4a;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background: red;
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.9); opacity: 1; }
+            50% { transform: scale(1.3); opacity: 0.4; }
+            100% { transform: scale(0.9); opacity: 1; }
+        }
+
+        /* Seção de Planos */
+        .planos {
+            padding: 100px 20px;
+            text-align: center;
+            background: linear-gradient(180deg, var(--bg-principal) 0%, #080216 100%);
+            position: relative;
+        }
+
+        .planos h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .sub-titulo {
+            color: #8b7eab;
+            font-size: 1.1rem;
+            margin-bottom: 50px;
+        }
+
+        .container-planos {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            gap: 30px;
+            flex-wrap: wrap;
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 350px;
+            background: var(--bg-cards);
+            padding: 40px 30px;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        /* Destaque do plano completo 2026 */
+        .card.destaque {
+            border: 2px solid var(--copa-verde);
+            transform: scale(1.03);
+            background: #230e52;
+        }
+
+        .badge-card {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--copa-verde);
+            color: #100528;
+            padding: 4px 16px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .card p.desc {
+            font-size: 0.85rem;
+            color: #8b7eab;
+            margin-bottom: 15px;
+        }
+
+        .preco {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: white;
+            line-height: 1;
+            margin-bottom: 25px;
+        }
+
+        .preco span {
+            font-size: 1rem;
+            color: #8b7eab;
+            font-weight: 400;
+        }
+
+        .card.destaque .preco {
+            color: var(--copa-verde);
+        }
+
+        .lista {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 35px;
+        }
+
+        .lista li {
+            padding: 12px 0;
+            font-size: 0.9rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            color: #d1c9e3;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .lista li.off {
+            color: rgba(139, 126, 171, 0.4);
+            text-decoration: line-through;
+        }
+
+        /* Player de Transmissão Profissional */
+        .video-area {
+            padding: 60px 20px 100px;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .video-area h2 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        .player-container {
+            background: #000;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid rgba(255,255,255,0.1);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.8);
+            position: relative;
+        }
+
+        .player-header {
+            background: #12092b;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+            color: #b4acc9;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            border: none;
+        }
+
+        /* Selos de segurança e credibilidade */
+        .selos-seguranca {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+            color: #8b7eab;
+            font-size: 0.8rem;
+        }
+
+        .selo-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Rodapé */
+        footer {
+            background: #060210;
+            padding: 40px 20px;
+            text-align: center;
+            color: #5c5275;
+            font-size: 0.85rem;
+            border-top: 1px solid #140b2b;
+        }
+
+        /* Responsividade Avançada */
+        @media (max-width: 992px) {
+            .card.destaque { transform: scale(1); }
+            .hero h1 { font-size: 2.6rem; }
+        }
+
+        @media (max-width: 768px) {
+            header { padding: 15px 20px; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1.1rem; }
+            .container-planos { gap: 40px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Banner de Urgência Real -->
+    <div class="top-bar">
+        ⚡ PROMOÇÃO DE ABERTURA: Garanta seu passaporte com preço único sem mensalidades!
+    </div>
+
+    <!-- Cabeçalho Oficial -->
+    <header>
+        <div class="logo-area">
+            <div class="logo-badge">FIFA 26</div>
+            <div class="logo-texto">Regional<span>Play</span></div>
+        </div>
+        <a href="#pacotes" class="btn">Adquirir Acesso</a>
+    </header>
+
+    <!-- Hero Section Copa -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="live-status">
+                <div class="pulse-dot"></div> Servidores Online - Transmissão HD Estável
+            </div>
+            <br>
+            <div class="hero-tag">CANAL DE TRANSMISSÃO DIGITAL EXCLUSIVO</div>
+            <h1>Assista à <span>Copa do Mundo FIFA 2026</span> Completa</h1>
+            <p>Acesse a cobertura total diretamente dos estádios dos EUA, México e Canadá. Imagem em 4K, narração profissional e sem atrasos.</p>
+            <a href="#pacotes" class="btn btn-ouro" style="font-size: 1rem; padding: 15px 40px;">Escolher Meu Plano Agora</a>
+        </div>
+    </section>
+
+    <!-- Seção de Planos Profissionais -->
+    <section class="planos" id="pacotes">
+        <h2>Selecione Seu Passaporte de Acesso</h2>
+        <p class="sub-titulo">Sem contratos, sem mensalidades. Pague uma vez e assista ao torneio inteiro.</p>
+        
+        <div class="container-planos">
+            
+            <!-- PLANO 1: BÁSICO -->
+            <div class="card">
+                <div>
+                    <h3>Passaporte Bronze</h3>
+                    <p class="desc">Ideal para acompanhar a seleção brasileira</p>
+                    <div class="preco">R$15 <span>/único</span></div>
+                    <ul class="lista">
+                        <li>⚡ Todos os jogos do Brasil Ao Vivo</li>
+                        <li>⚡ Acesso exclusivo por Smartphone</li>
+                        <li>⚡ Transmissão em Resolução Padrão (SD)</li>
+                        <li class="off">❌ Jogos das demais seleções</li>
+                        <li class="off">❌ Espelhamento para Smart TV</li>
+                        <li class="off">❌ Acesso a gravações e reprises</li>
+                    </ul>
+                </div>
+                <a href="SEU_LINK_KIWIFY_PLANO_15" target="_blank" class="btn">Selecionar Bronze</a>
+            </div>
+
+            <!-- PLANO 3: COMPLETO (DESTAQUE NO CENTRO) -->
+            <div class="card destaque">
+                <div class="badge-card">Mais Vendido</div>
+                <div>
+                    <h3>Acesso VIP Premium</h3>
+                    <p class="desc">A experiência máxima da Copa em 4K</p>
+                    <div class="preco">R$25 <span>/único</span></div>
+                    <ul class="lista">
+                        <li>⭐ <b>Todos os 104 jogos</b> da Copa Ao Vivo</li>
+                        <li>⭐ Qualidade Ultra HD / 4K nativo</li>
+                        <li>⭐ Liberado para Smart TV, Celular, PC e Tablet</li>
+                        <li>⭐ Assista até em 2 telas simultâneas</li>
+                        <li>⭐ Reprises de confrontos históricos na hora</li>
+                        <li>⭐ Suporte técnico prioritário via WhatsApp</li>
+                    </ul>
+                </div>
+                <a href="SEU_LINK_KIWIFY_PLANO_25" target="_blank" class="btn btn-ouro" style="width: 100%; text-align: center;">Liberar Plataforma Toda</a>
+            </div>
+
+            <!-- PLANO 2: PADRÃO -->
+            <div class="card">
+                <div>
+                    <h3>Passaporte Prata</h3>
+                    <p class="desc">Acesso completo para telas individuais</p>
+                    <div class="preco">R$20 <span>/único</span></div>
+                    <ul class="lista">
+                        <li>⚡ Todos os 104 jogos da Copa Ao Vivo</li>
+                        <li>⚡ Transmissão em Alta Definição (HD)</li>
+                        <li>⚡ Compatível com Celular e Computador</li>
+                        <li>⚡ Melhores momentos da rodada salvos</li>
+                        <li class="off">❌ Suporte a Smart TV / Roku</li>
+                        <li class="off">❌ Resolução 4K de ultra definição</li>
+                    </ul>
+                </div>
+                <a href="SEU_LINK_KIWIFY_PLANO_20" target="_blank" class="btn">Selecionar Prata</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Área de Streaming Principal -->
+    <section class="video-area">
+        <h2>Área de Transmissão</h2>
+        <p class="sub-titulo" style="margin-bottom: 25px;">Adquira um plano acima para desbloquear os canais alternativos e o sinal limpo.</p>
+        
+        <div class="player-container">
+            <div class="player-header">
+                <div>● SINAL PRINCIPAL - COPA 2026</div>
+                <div style="color: var(--copa-verde); font-weight: bold;">● TRANSMISSÃO EXPERIMENTAL ATIVA</div>
+            </div>
+            <div class="video-wrapper">
+                <!-- Coloque aqui o link do player de vídeo (ex: Youtube Live, Vimeo, Panda Video, Player Privado) -->
+                <iframe src="https://www.youtube.com/live/EYStZQ5FsVk?si=aIaoKES6jYGzdRek" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <!-- Elementos de Credibilidade para Checkout -->
+        <div class="selos-seguranca">
+            <div class="selo-item">🔒 Conexão SSL Criptografada</div>
+            <div class="selo-item">🚀 Checkout Seguro via Kiwify</div>
+            <div class="selo-item">⏱ Liberada imediata no E-mail</div>
+        </div>
+    </section>
+
+    <!-- Rodapé Legalizado -->
+    <footer>
+        &copy; 2026 Regional Play Digital - Todos os direitos reservados. <br>
+        <span style="font-size: 0.75rem; color: #3d3552; display: inline-block; margin-top: 10px; max-width: 700px; line-height: 1.4;">
+            Aviso de Isenção: Este site provê uma interface de retransmissão sob demanda independente. "FIFA", "World Cup" e as marcas associadas são marcas registradas de seus respectivos proprietários. Não possuímos afiliação corporativa direta com as entidades organizadoras.
+        </span>
+    </footer>
+
+</body>
+</html>
