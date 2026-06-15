@@ -93,4 +93,5 @@ Este projeto está disponível para fins educacionais e de desenvolvimento web.
 
 ## Autor
 
-Desenvolvido por Yago Avendano.
+Desenvolvido por 
+******
