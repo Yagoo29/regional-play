@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Rádio Oficial FM 87.9 - Iguape/SP</title>
+<meta name="description" content="Rádio Oficial FM 87.9 de Iguape/SP - Música, notícias e entretenimento ao vivo.">
+<meta name="theme-color" content="#00a2ff">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background: radial-gradient(circle at top, #0d1117, #05070c);
+color:white;
+min-height:100vh;
+}
+
+/* HEADER */
+header{
+background: linear-gradient(135deg,#005eff,#00a2ff);
+padding:40px 20px;
+text-align:center;
+border-bottom-left-radius:30px;
+border-bottom-right-radius:30px;
+}
+
+.logo img{
+width:180px;
+max-width:100%;
+border-radius:12px;
+box-shadow:0 10px 30px rgba(0,0,0,.4);
+}
+
+h1{
+margin-top:15px;
+font-size:26px;
+}
+
+.frequencia{
+font-size:34px;
+font-weight:bold;
+margin-top:8px;
+}
+
+.slogan{
+margin-top:10px;
+font-size:14px;
+opacity:.9;
+line-height:1.6;
+}
+
+/* CONTAINER */
+.container{
+max-width:1000px;
+margin:auto;
+padding:25px 15px;
+}
+
+/* PLAYER */
+.player-box{
+background: rgba(255,255,255,0.05);
+backdrop-filter: blur(10px);
+padding:25px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,.4);
+border:1px solid rgba(255,255,255,0.1);
+}
+
+.live{
+display:inline-block;
+background:red;
+padding:8px 18px;
+border-radius:30px;
+font-weight:bold;
+margin-bottom:15px;
+animation:pulse 1.2s infinite;
+font-size:13px;
+}
+
+@keyframes pulse{
+50%{ transform:scale(1.08); }
+}
+
+audio{
+width:100%;
+margin-top:15px;
+}
+
+/* BOTÃO INSTAGRAM */
+.redes{
+margin-top:30px;
+text-align:center;
+}
+
+.redes a{
+color:white;
+text-decoration:none;
+padding:12px 18px;
+background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);
+border-radius:12px;
+display:inline-block;
+font-weight:600;
+transition:.3s;
+}
+
+.redes a:hover{
+transform:scale(1.05);
+}
+
+/* CARDS */
+.noticias{
+margin-top:40px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:15px;
+}
+
+.card{
+background: rgba(255,255,255,0.05);
+backdrop-filter: blur(8px);
+padding:18px;
+border-radius:15px;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+/* FOOTER */
+footer{
+margin-top:40px;
+padding:25px;
+text-align:center;
+background:#0a0d12;
+border-top:1px solid rgba(255,255,255,0.1);
+font-size:14px;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+h1{font-size:20px;}
+.frequencia{font-size:28px;}
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+<img src="logo-radio.png" alt="Rádio Oficial FM 87.9">
+</div>
+
+<h1>📻 Rádio Oficial FM</h1>
+
+<div class="frequencia">87.9 FM</div>
+
+<div class="slogan">
+📍 Iguape - SP<br>
+🎙 Ao vivo das 09h às 11h
+</div>
+
+</header>
+
+<div class="container">
+
+<div class="player-box">
+
+<div id="statusRadio" class="live">🔴 CARREGANDO...</div>
+
+<h2>Ouça Ao Vivo</h2>
+
+<audio controls autoplay>
+<source src="LINK_DO_STREAMING" type="audio/mpeg">
+Seu navegador não suporta áudio.
+</audio>
+
+<p style="margin-top:15px; opacity:.8;">
+Transmitindo direto de Iguape/SP
+</p>
+
+</div>
+
+<div class="redes">
+<h2>Redes Sociais</h2>
+<br>
+
+<a href="https://www.instagram.com/radiooficialfm87.9?igsh=MXkyZW1wcDk2cHJ2OA==" target="_blank">
+📸 Instagram Oficial
+</a>
+</div>
+
+<div class="noticias">
+
+<div class="card">
+<h3>🎶 Música 24h</h3>
+<p>As melhores músicas nacionais e internacionais.</p>
+</div>
+
+<div class="card">
+<h3>📻 Rádio Comunitária</h3>
+<p>Informação e entretenimento para Iguape e região.</p>
+</div>
+
+<div class="card">
+<h3>🎤 Ouvintes</h3>
+<p>Participe através do Instagram oficial.</p>
+</div>
+
+</div>
+
+</div>
+
+<footer>
+<h3>Rádio Oficial FM 87.9</h3>
+<p>Iguape/SP • © 2026 Todos os direitos reservados</p>
+</footer>
+
+<script>
+
+const hora = new Date().getHours();
+const status = document.getElementById("statusRadio");
+
+if(hora >= 9 && hora < 11){
+status.innerHTML = "🔴 AO VIVO AGORA";
+status.style.background = "#dc2626";
+}else{
+status.innerHTML = "⚫ FORA DO AR";
+status.style.background = "#374151";
+}
+
+</script>
+
+</body>
+</html>
